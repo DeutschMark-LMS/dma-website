@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes dma-marquee {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+.promo-marquee-track {
+	animation: dma-marquee var(--marquee-duration, 26s) linear infinite;
+}
+
+.promo-marquee-track:hover {
+	animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.promo-marquee-track {
+		animation: none;
+	}
+}
