@@ -13,7 +13,6 @@ import useCmsContent from './hooks/useCmsContent';
 import { isSupabaseConfigured, supabase } from './lib/supabaseClient';
 
 export default function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCmsAuthenticated, setIsCmsAuthenticated] = useState(false);
   const [isAuthChecking, setIsAuthChecking] = useState(true);
@@ -34,17 +33,6 @@ export default function App() {
     typeof window !== 'undefined'
       ? new URLSearchParams(window.location.search).get('previewSection') || 'all'
       : 'all';
-
-  const isTickerEnabled = content?.promoTicker?.enabled !== false;
-
-  // Handle scroll effect for the glassmorphic navbar
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     if (!isSupabaseConfigured || !supabase) {
@@ -127,7 +115,6 @@ export default function App() {
     navbar: (
       <Navbar
         data={content.navbar}
-        isScrolled={isScrolled}
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
       />
@@ -151,14 +138,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 font-sans selection:bg-amber-500/30">
-      <PromoTicker data={content.promoTicker} fixedTop />
-      <Navbar
-        data={content.navbar}
-        isScrolled={isScrolled}
-        mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen}
-        withTopTicker={isTickerEnabled}
-      />
+      <div className="sticky top-0 z-[70]">
+        <PromoTicker data={content.promoTicker} />
+        <Navbar
+          data={content.navbar}
+          mobileMenuOpen={mobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
+        />
+      </div>
       <Hero data={content.hero} />
       <Methodology data={content.methodology} />
       <Programs data={content.programs} />

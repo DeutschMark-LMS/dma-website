@@ -9,24 +9,24 @@ export default function Hero({ data }) {
   };
 
   return (
-    <div id="hero" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-white/5">
+    <div id="hero" className="relative pt-20 pb-14 sm:pt-24 sm:pb-16 lg:pt-40 lg:pb-28 overflow-hidden border-b border-white/5">
       {/* Background glow effects */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-amber-500/20 blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-amber-400 text-sm font-medium mb-8">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-amber-400 text-xs sm:text-sm font-medium mb-6 sm:mb-8">
           <Zap size={16} />
           <span>{data.badgeText}</span>
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-5 sm:mb-6">
           {data.titleMain} <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
             {data.titleHighlight}
           </span>
         </h1>
         
-        <p className="mt-4 text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed mb-10">
+        <p className="mt-3 sm:mt-4 text-base sm:text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed mb-8 sm:mb-10">
           {data.description}
         </p>
         

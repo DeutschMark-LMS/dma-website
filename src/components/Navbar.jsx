@@ -1,11 +1,9 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
 
-export default function Navbar({ data, isScrolled, mobileMenuOpen, setMobileMenuOpen, withTopTicker = false }) {
-  const topOffsetClass = withTopTicker ? 'top-12 md:top-14' : 'top-0';
-
+export default function Navbar({ data, mobileMenuOpen, setMobileMenuOpen }) {
   return (
-    <nav className={`fixed ${topOffsetClass} w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-white/10 py-3' : 'bg-transparent py-5'}`}>
+    <nav className="w-full z-50 bg-slate-950/95 backdrop-blur-md border-b border-white/10 py-2.5 sm:py-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -17,11 +15,11 @@ export default function Navbar({ data, isScrolled, mobileMenuOpen, setMobileMenu
                 className="w-9 h-9 rounded object-cover border border-white/10"
               />
             ) : (
-              <div className="w-8 h-8 rounded bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-900 font-bold text-xl">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-900 font-bold text-lg sm:text-xl">
                 D
               </div>
             )}
-            <span className="text-xl font-bold text-white tracking-tight">
+            <span className="text-base sm:text-xl font-bold text-white tracking-tight leading-tight max-w-[210px] sm:max-w-none truncate">
               {data.brandMain} <span className="text-amber-400">{data.brandAccent}</span>
             </span>
           </div>
@@ -37,8 +35,9 @@ export default function Navbar({ data, isScrolled, mobileMenuOpen, setMobileMenu
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden text-white"
+            className="md:hidden text-white p-1"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle mobile menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

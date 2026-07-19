@@ -4,19 +4,19 @@ import CheckCircle from './CheckCircle';
 
 export default function Programs({ data }) {
   return (
-    <div id="programs" className="py-24 bg-slate-900 relative">
+    <div id="programs" className="py-16 sm:py-20 lg:py-24 bg-slate-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{data.heading}</h2>
-            <p className="text-slate-400 max-w-xl text-lg">{data.description}</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">{data.heading}</h2>
+            <p className="text-slate-400 max-w-xl text-base sm:text-lg">{data.description}</p>
           </div>
           <a href={data.catalogButton.href} className="mt-6 md:mt-0 text-amber-400 font-medium hover:text-amber-300 flex items-center gap-1 transition-colors">
             {data.catalogButton.label} <ChevronRight size={16} />
           </a>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {data.items.map((program, idx) => (
             <div key={program.id || idx} className="group bg-slate-950 rounded-2xl border border-white/10 overflow-hidden hover:border-amber-500/50 transition-all duration-500 flex flex-col h-full">
               <div className="h-52 relative p-6 flex items-end overflow-hidden">
@@ -33,7 +33,7 @@ export default function Programs({ data }) {
                 )}
                 <h3 className="text-2xl font-bold text-white relative z-10">{program.title}</h3>
               </div>
-              <div className="p-8 flex flex-col flex-grow">
+              <div className="p-5 sm:p-8 flex flex-col flex-grow">
                 <p className="text-amber-400 font-medium mb-4">
                   {program.subtitle}
                 </p>

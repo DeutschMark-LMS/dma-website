@@ -16,21 +16,21 @@ const gradientClasses = [
 export default function Methodology({ data }) {
 
   return (
-    <div id="methodology" className="py-24 bg-slate-950 relative border-b border-white/5">
+    <div id="methodology" className="py-16 sm:py-20 lg:py-24 bg-slate-950 relative border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{data.heading}</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">{data.heading}</h2>
+          <p className="text-slate-400 max-w-2xl mx-auto text-base sm:text-lg">
             {data.description}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
           {data.pillars.map((pillar, idx) => {
             const PillarIcon = iconMap[pillar.icon] || BookOpen;
 
             return (
-              <div key={`${pillar.title}-${idx}`} className={`p-8 rounded-2xl border border-white/10 ${gradientClasses[idx % gradientClasses.length]} hover:border-amber-500/50 transition-all duration-300 group`}>
+              <div key={`${pillar.title}-${idx}`} className={`p-5 sm:p-8 rounded-2xl border border-white/10 ${gradientClasses[idx % gradientClasses.length]} hover:border-amber-500/50 transition-all duration-300 group`}>
               <div className="w-16 h-16 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <PillarIcon className="text-amber-400" size={32} />
               </div>

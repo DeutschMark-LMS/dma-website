@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Footer({ data }) {
   return (
-    <footer id="footer" className="bg-slate-950 border-t border-white/10 pt-16 pb-8">
+    <footer id="footer" className="bg-slate-950 border-t border-white/10 pt-12 sm:pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-12">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded bg-amber-500 flex items-center justify-center text-slate-900 font-bold text-xl">
@@ -14,7 +14,7 @@ export default function Footer({ data }) {
                 Deutsch Mark Academy
               </span>
             </div>
-            <p className="text-slate-400 max-w-sm mb-6">
+            <p className="text-slate-400 text-sm sm:text-base max-w-sm mb-4 sm:mb-6">
               {data.about}
             </p>
           </div>
